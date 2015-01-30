@@ -1,5 +1,9 @@
 # `dotenv`
 
+Shim to load environment variables from `.env` into `ENV` in development.
+
+https://github.com/bkeepers/dotenv
+
 ## Usage
 
 `.env`:
@@ -42,13 +46,32 @@ We're going to focus on the standard Ruby entry point.
 
 ## Dotenv (`lib/dotenv.rb`)
 
-- L42-46: Could be replaced with a call to `inject`
-- L44: Depends on the caller supplying a block returning a Hash-like object
+- L42-46: Could be replaced with a call to `inject`.
+- L44: Depends on the caller supplying a block returning a Hash-like object.
 - L11: Flawed way of handling non-existent files.
 
 ## Dotenv::Environment (`lib/dotenv/environment.rb`)
 
+- L10: Overriding kernel method `load`.
+- L7: Mutation in constructor.
+
+## Dotenv (`lib/dotenv.rb`)
+
+- L13: Instrumentation.
+
+## `lib/dotenv/rails.rb`
+
+- L3: Using `ActiveSupport::Notifications`.
+
+## Dotenv::Environment (`lib/dotenv/environment.rb`)
+
+- L18: Actually setting the keys in `ENV`.
+
+## Dotenv (`lib/dotenv.rb`)
+
+- L13: Actually not instrumenting the loading, but rather the application.
+
 # URLs to load
 
-- http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html
 - http://www.ruby-doc.org/core-2.2.0/Kernel.html#method-i-load
+- http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html
