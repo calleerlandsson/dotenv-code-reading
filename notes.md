@@ -2,8 +2,6 @@
 
 Shim to load environment variables from `.env` into `ENV` in development.
 
-https://github.com/bkeepers/dotenv
-
 ## Usage
 
 `.env`:
@@ -71,7 +69,8 @@ We're going to focus on the standard Ruby entry point.
 
 - L13: Actually not instrumenting the loading, but rather the application.
 
-# URLs to load
+# Related links
 
+- https://github.com/bkeepers/dotenv/
 - http://www.ruby-doc.org/core-2.2.0/Kernel.html#method-i-load
 - http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html
